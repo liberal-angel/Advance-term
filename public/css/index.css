@@ -1,0 +1,232 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 30px auto auto auto;
+}
+
+nav {
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px #000;
+  padding: 10px 15px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-til {
+  margin: 0 0 0 30px;
+  color: #305dff;
+}
+
+.humbergar {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 2px 2px 8px #000;
+  background-color: #305dff;
+  border-radius: 5px;
+
+}
+
+.humbergar-top,
+.humbergar-middle,
+.humbergar-bottom {
+  display: inline-block;
+  height: 0.5px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  left: 25%;
+}
+
+.humbergar-top {
+  top: 25%;
+  width: 40%;
+}
+
+.humbergar-middle {
+  top: 50%;
+  width: 50%;
+}
+
+.humbergar-bottom {
+  bottom: 25%;
+  width: 25%;
+}
+
+.search-item {
+  border: transparent;
+  font-size: 15px;
+  height: 30px;
+  outline: none;
+}
+
+.search-item:not(:last-child){
+  border-right: 2px solid rgb(119, 119, 119);
+}
+
+.shop {
+  width: 100%;
+}
+
+.shop-card-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  width: 90%;
+}
+
+.shop-card {
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  box-shadow: 2px 2px 8px #000;
+  ;
+  border-radius: 8px;
+  position: relative;
+}
+
+.picture {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.shop-detail {
+  padding: 10px 20px;
+}
+
+.shop-detail-til {
+  margin: auto;
+}
+
+.shop-detail-txt {
+  display: flex;
+  align-items: center;
+}
+
+.shop-detail-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.between {
+  height: 40px;
+}
+
+.detail-btn {
+  background-color: #305dff;
+  border: #305dff;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.like-btn {
+  border-color: transparent;
+  background-color: transparent;
+  font-size: 30px;
+}
+
+.heart-content {
+  position: absolute;
+  top: 80%;
+  right: 5%;
+}
+
+.heart {
+  width: 50px;
+  /* 正方形を作る */
+  height: 50px;
+  /* 正方形を作る */
+  position: relative;
+  /* 基準位置とする */
+  bottom: 20px;
+  cursor: pointer;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  /* 疑似要素に必須 */
+  width: 50%;
+  /* ハートの丸い部分の大きさにかかわる */
+  height: 80%;
+  /* ハートの高さにかかわる */
+  background: #E0548E;
+  /* ハートの色 */
+  border-radius: 25px 25px 0 0;
+  /* ハートの半円を生成 */
+  display: block;
+  /* ブロック要素にする */
+  position: absolute;
+  /* 相対位置に指定 */
+}
+
+.heart::before {
+  transform: rotate(-45deg);
+  /* 左に回転 */
+  left: 14%;
+  /* 左からの位置を指定 */
+}
+
+.heart::after {
+  transform: rotate(45deg);
+  /* 右に回転 */
+  right: 14%;
+  /* 右からの位置を指定 */
+}
+
+.un-heart {
+  width: 50px;
+  /* 正方形を作る */
+  height: 50px;
+  /* 正方形を作る */
+  position: relative;
+  /* 基準位置とする */
+  bottom: 20px;
+  cursor: pointer;
+}
+
+.un-heart::before,
+.un-heart::after {
+  content: "";
+  /* 疑似要素に必須 */
+  width: 50%;
+  /* ハートの丸い部分の大きさにかかわる */
+  height: 80%;
+  /* ハートの高さにかかわる */
+  background: #cbcbcb;
+  /* ハートの色 */
+  border-radius: 25px 25px 0 0;
+  /* ハートの半円を生成 */
+  display: block;
+  /* ブロック要素にする */
+  position: absolute;
+  /* 相対位置に指定 */
+}
+
+.un-heart::before {
+  transform: rotate(-45deg);
+  /* 左に回転 */
+  left: 14%;
+  /* 左からの位置を指定 */
+}
+
+.un-heart::after {
+  transform: rotate(45deg);
+  /* 右に回転 */
+  right: 14%;
+  /* 右からの位置を指定 */
+}

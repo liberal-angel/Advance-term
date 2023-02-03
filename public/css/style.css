@@ -1,0 +1,116 @@
+header {
+  width: 100%;
+}
+
+.item-logo {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.logo-til {
+  margin-left: 30px;
+  color: #305dff;
+}
+
+.humbergar {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  box-shadow: 2px 2px 8px #000;
+  background-color: #305dff;
+  border-radius: 5px;
+}
+
+.humbergar-top,
+.humbergar-middle,
+.humbergar-bottom {
+  display: inline-block;
+  height: 0.5px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  left: 25%;
+}
+
+.humbergar-top {
+  top: 25%;
+  width: 40%;
+}
+
+.humbergar-middle {
+  top: 50%;
+  width: 50%;
+}
+
+.humbergar-bottom {
+  bottom: 25%;
+  width: 25%;
+}
+
+
+.login-content{
+  display: flex;
+  justify-content: center;
+  margin: 10% auto;
+}
+
+.login-card {
+  display: inline-block;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px #000;
+  width: 400px;
+}
+
+.list-item-til{
+  background-color: #305dff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.list-til{
+  display: inline-block;
+  font-size: 120%;
+  margin-left: 5%;
+  color: #fff;
+}
+
+.list-item-input {
+  padding: 10px 25px;
+}
+
+.list-item-btn{
+  display: flex;
+  justify-content: right;
+}
+
+.list-btn{
+  background-color: #305dff;
+  color: #fff;
+  border: transparent;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  width: 25%;
+  margin-top: 15px;
+}
+
+.add_txt {
+  width: 250px;
+  height: 25px;
+  border: transparent;
+  border-bottom: solid 2px black;
+  outline: none;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+table{
+  margin: auto;
+}
+
+img{
+  margin-right: 20px;
+  margin-top: 5px;
+}

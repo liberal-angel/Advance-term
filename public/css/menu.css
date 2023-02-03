@@ -1,0 +1,67 @@
+header {
+  width: 90%;
+  margin: 30px auto auto auto;
+}
+
+.humbergar {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 2px 2px 8px #000;
+  ;
+  background-color: #305dff;
+  border-radius: 5px;
+
+}
+
+.humbergar-top,
+.humbergar-bottom {
+  display: inline-block;
+  height: 0.5px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  left: 25%;
+}
+
+.humbergar-top {
+  top: 50%;
+  width: 55%;
+  transform: rotate(45deg);
+}
+
+.humbergar-bottom {
+  top: 50%;
+  width: 55%;
+  transform: rotate(-45deg);
+}
+
+.menu-content{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.Home-Mypage-txt{
+  color: #305dff;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.Home-Mypage-txt:first-child {
+  margin-bottom: 10px;
+}
+
+.Logout-txt{
+  cursor: pointer;
+  color: #305dff;
+  border: transparent;
+  background: transparent;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}

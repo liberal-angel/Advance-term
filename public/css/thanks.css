@@ -1,0 +1,33 @@
+.thanks-content{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  height: 50vh;
+  width: 100%;
+}
+
+.thanks-content-item{
+  width: 30%;
+  margin: auto;
+  box-shadow: 2px 2px 8px #000;;
+  border-radius: 5px;
+  padding: 100px 20px;
+}
+
+p{
+  margin: 0;
+  font-size: large;
+  font-weight: bold;
+}
+
+.btn{
+  color: #fff;
+  box-shadow: 2px 2px 8px #000;;
+  background-color: #305dff;
+  border-radius: 5px;
+  border: transparent;
+  padding: 5px 15px;
+  margin-top: 15px;
+  cursor: pointer;
+}

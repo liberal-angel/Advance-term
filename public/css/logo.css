@@ -1,0 +1,46 @@
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-til {
+  margin: 0 0 0 30px;
+  color: #305dff;
+}
+
+.humbergar {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 2px 2px 8px #000;
+  background-color: #305dff;
+  border-radius: 5px;
+
+}
+
+.humbergar-top,
+.humbergar-middle,
+.humbergar-bottom {
+  display: inline-block;
+  height: 0.5px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  left: 25%;
+}
+
+.humbergar-top {
+  top: 25%;
+  width: 40%;
+}
+
+.humbergar-middle {
+  top: 50%;
+  width: 50%;
+}
+
+.humbergar-bottom {
+  bottom: 25%;
+  width: 25%;
+}
