@@ -16,11 +16,7 @@ class Rate extends Model
         'comment',
     ];
 
-    public function User(){
-        return $this->hasMany(User::class);
-    }
-    
-    public function Shop(){
-        return $this->hasMany(Shop::class);
+    public function item(){
+        return $this->hasMany(User::class, Shop::class, 'foreign_key');
     }
 }

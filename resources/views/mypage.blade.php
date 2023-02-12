@@ -40,6 +40,11 @@
                     <p class="reservation-til">予約{{ $i+1 }}</p>
                   </div>
                   @if( $now > $reservation->start_at )
+                    @foreach($Shops as $Shop)
+                      @if( $reservation->shop_id === $Shop->id )
+                        <h2 class="rate-content-til">{{ $Shop->name }}</h2>
+                      @endif
+                    @endforeach
                   @else
                     <form action="delete/{{ $reservation['id'] }}" method="POST">
                       @csrf
@@ -52,12 +57,8 @@
 
                 <!-- 来店後の表記 -->
                   <div>
-                    @foreach($Shops as $Shop)
-                      @if( $reservation->shop_id === $Shop->id )
-                        <h2 class="rate-content-til">{{ $Shop->name }}</h2>
-                      @endif
-                    @endforeach
                     <p>ご来店ありがとうございました！</p>
+                    <!-- バリデーション -->
                     @if(count($errors)>0)
                       <div class="show-error">
                         <p class="error-til">下記内容の問題があります</p>
@@ -95,6 +96,7 @@
                   </div>
 
                 @else
+
                 <!-- 来店前の予約表記 -->
                   <div>
                     <form action="update/{{ $reservation->id }}" method="POST">
@@ -150,6 +152,7 @@
                     </form>
                   </div>
                 @endif
+
               </div>
             @endif
           @endforeach

@@ -1,0 +1,46 @@
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+
+.top-til{
+  display: flex;
+  align-items: center;
+}
+
+.header-til {
+  font-size: larger;
+}
+
+table {
+  width: 80%;
+  margin: auto;
+  padding: 15px 0;
+  border-bottom: 3px solid #305dff;
+}
+
+th{
+  width: 10%;
+}
+
+.back-btn {
+  background: #305dff;
+  padding: 10px;
+  color: #fff;
+  font-weight: bolder;
+  border: 1px solid #305dff;
+  border-radius: 3px;
+  box-shadow: 1px 1px 5px #000;
+  text-decoration: none;
+  margin-left: 15px;
+  transition: 0.5s;
+}
+
+.back-btn:hover {
+  background: #fff;
+  color: #305dff;
+  border: 1px solid #305dff;
+}

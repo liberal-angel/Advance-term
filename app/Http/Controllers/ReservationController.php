@@ -13,6 +13,7 @@ use App\Models\Like;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\User;
+use App\Models\Rate;
 
 class ReservationController extends Controller
 {
@@ -156,22 +157,19 @@ class ReservationController extends Controller
         return redirect('mypage');
     }
 
-    public function menu(){
-        return view('menu');
-    }
-
-    public function management(){
-        return view('management');
-    }
-
     public function rate(RateRequest $request){
-        $test = $request->only([
+        $data = $request->only([
             'user_id',
             'shop_id',
             'rate',
             'comment',
         ]);
-        dd($test);
-        return back();
+        Rate::create($data);
+        Reservation::where('id', $request -> id)->delete();
+        return redirect('mypage');
+    }
+
+    public function menu(){
+        return view('menu');
     }
 }

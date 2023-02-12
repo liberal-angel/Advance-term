@@ -14,11 +14,7 @@ class Like extends Model
         'shop_id',
     ];
 
-    public function User(){
-        return $this->hasMany(User::class);
-    }
-    
-    public function Shop(){
-        return $this->hasMany(Shop::class);
+    public function item(){
+        return $this->hasMany(User::class, Shop::class, 'foreign_key');
     }
 }

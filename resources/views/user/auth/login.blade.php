@@ -36,7 +36,7 @@
             <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
             <div class="list-item-input">
-              <form method="POST" action="{{ route('login') }}">
+              <form method="POST" action="{{ route('user.login') }}">
                 @csrf
                 <table>
                   <tr>

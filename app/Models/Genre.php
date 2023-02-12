@@ -13,7 +13,7 @@ class Genre extends Model
         'name',
     ];
 
-    public function Shop(){
+    public function shop(){
         return $this->belongsTo(Shop::class);
     }
 }

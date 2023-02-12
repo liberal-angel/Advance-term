@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 Route::middleware('auth')->group(function () {
@@ -22,7 +23,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // 管理者用 画面
-Route::get('/management', [ReservationController::class, 'management']);
+Route::get('/admin_register', [AdminController::class, 'admin_register']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

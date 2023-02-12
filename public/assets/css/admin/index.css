@@ -1,0 +1,101 @@
+.top-til{
+  display: flex;
+  align-items: center;
+  box-shadow: 1px 1px 5px #000;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.logout-btn{
+  margin-left: 15px;
+}
+
+table{
+  width: 80%;
+  margin: auto;
+  padding: 15px 0;
+}
+
+table:not(:last-child){
+  border-bottom: 3px solid #305dff;
+}
+
+.top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+
+.header-til{
+  font-size: larger;
+}
+
+.btn{
+  background: #305dff;
+  padding: 10px;
+  color: #fff;
+  font-weight: bolder;
+  border: 1px solid #305dff;
+  border-radius: 3px;
+  box-shadow: 1px 1px 5px #000;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn:hover{
+  background: #fff;
+  color: #305dff;
+  border: 1px solid #305dff;
+}
+
+.create-content{
+  width: 80%;
+  margin: 3% auto;
+  padding: 15px 0px;
+  box-shadow: 1px 1px 5px #000;
+  border-radius: 3px;
+}
+
+.create-content-form{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.create-add-item{
+  border: transparent;
+  border-bottom: 2px solid #000;
+  outline: none;
+}
+
+.create-add-txt-area{
+  border: 2px solid #000;
+}
+
+.update-content{
+  display: flex;
+  flex-direction: column;
+}
+
+/* バリデーション デザイン */
+.show-error {
+  margin-left: 5%;
+}
+
+.error-txt {
+  margin: 0;
+}
+
+.error-til {
+  font-size: larger;
+}
+
+.error-txt {
+  color: red;
+}
+
+.error-txt-item {
+  color: black;
+}
