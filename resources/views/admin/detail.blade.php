@@ -26,7 +26,7 @@
         <h2 class="header-til">
           予約状況
         </h2>
-        <a href="index" class="back-btn">戻る</a>
+        <a href="../index" class="btn">戻る</a>
       </div>
     </div>
   </header>
@@ -46,8 +46,20 @@
                   @endif
                 @endforeach
               </td>
-              <td> {{ $reservation->num_of_users }} 名</td>
+              <td> {{ $reservation->num_of_users }} 名 </td>
               <td> {{ $reservation->start_at }} </td>
+              <td>
+                <form action="mail" method="POST">
+                  @csrf
+                  @foreach( $users as $user )
+                    @if( $user->id === $reservation->user_id )
+                      <input type="hidden" name="name" value="{{ $user->name }}">
+                      <input type="hidden" name="email" value="{{ $user->email }}">
+                      <input type="submit" class="btn" value="メール">
+                    @endif
+                  @endforeach
+                </form>
+              </td>
             </tr>
           </table>
         @endif

@@ -28,6 +28,7 @@ p{
   border-radius: 5px;
   border: transparent;
   padding: 5px 15px;
-  margin-top: 15px;
+  margin-top: 20px;
   cursor: pointer;
+  text-decoration: none;
 }

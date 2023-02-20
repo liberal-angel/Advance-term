@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\User\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\User\Auth\EmailVerificationNotificationController;
@@ -11,6 +10,7 @@ use App\Http\Controllers\User\Auth\PasswordResetLinkController;
 use App\Http\Controllers\User\Auth\RegisteredUserController;
 use App\Http\Controllers\User\Auth\VerifyEmailController;
 use App\Http\Controllers\ReservationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,21 +23,20 @@ use App\Http\Controllers\ReservationController;
 |
 */
 
-Route::middleware('auth:users')->group(function () {
+Route::middleware(['verified'])->group(function () {
     Route::get('/',[ReservationController::class, 'index']);
     Route::get('/search',[ReservationController::class, 'search']);
     Route::post('/like/{shopId}',[ReservationController::class, 'like']);
     Route::post('/unlike/{shopId}',[ReservationController::class, 'unlike']);
 
-    Route::get('/detail',[ReservationController::class, 'detail']);
-    Route::post('/reservation',[ReservationController::class, 'reservation']);
+    Route::get('/detail/{id}',[ReservationController::class, 'detail']);
+    Route::post('/create',[ReservationController::class, 'create']);
     Route::get('/menu',[ReservationController::class, 'menu']);
 
     Route::get('/mypage',[ReservationController::class, 'mypage']);
     Route::post('/update/{id}',[ReservationController::class, 'update']);
-    Route::post('/delete/{id}',[ReservationController::class, 'delete']);
     Route::post('/rate/{id}',[ReservationController::class, 'rate']);
-    // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('/delete/{id}',[ReservationController::class, 'delete']);
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
@@ -71,23 +70,23 @@ Route::post('/reset-password', [NewPasswordController::class, 'store'])
     ->name('password.update');
 
 Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])
-    ->middleware('auth')
+    ->middleware('auth:users')
     ->name('verification.notice');
 
 Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
-    ->middleware(['auth', 'signed', 'throttle:6,1'])
+    ->middleware(['auth:users', 'signed', 'throttle:6,1'])
     ->name('verification.verify');
 
 Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-    ->middleware(['auth', 'throttle:6,1'])
+    ->middleware(['auth:users', 'throttle:6,1'])
     ->name('verification.send');
 
 Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
-    ->middleware('auth')
+    ->middleware('auth:users')
     ->name('password.confirm');
 
 Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
-    ->middleware('auth');
+    ->middleware('auth:users');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth:users')

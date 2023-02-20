@@ -4,16 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ManagementRequest;
 use App\Models\Reservation;
 use App\Models\Shop;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 
 class AdminController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $admin = Auth::user();
         $areas = Area::all();
         $genres = Genre::all();
@@ -27,7 +31,8 @@ class AdminController extends Controller
         return view('admin.index', $data);
     }
 
-    public function detail(Request $request){
+    public function detail(Request $request)
+    {
         $reservations = Reservation::all();
         $users = User::all();
         $shop_id = $request -> only('id');
@@ -40,29 +45,53 @@ class AdminController extends Controller
         return view('admin.detail', $data);
     }
 
-    public function create(ManagementRequest $request){
-        $cre_dt = $request->only(
-            'admin_id',
-            'name',
-            'area_id',
-            'genre_id',
-            'discription',
-            'image_url',
-        );
-        Shop::create($cre_dt);
+    public function create(ManagementRequest $request)
+    {
+        $img = $request->file('image_url');
+        $path = $img->store('img','public');
+        Shop::create([
+            'name' => $request->name,
+            'area_id' => $request->area_id,
+            'genre_id' => $request->genre_id,
+            'admin_id' => $request->admin_id,
+            'discription' => $request->discription,
+            'image_url' => $path,
+        ]);
         return back();
     }
 
     public function update(ManagementRequest $request)
     {
-        $up_dt = $request->only(
+        $shop = Shop::find($request->id);
+        $img = $request->file('image_url');
+        if (isset($img)) {
+            Storage::disk('public')->delete($shop->image_url);
+            $path = $img->store('img','public');
+            Shop::where('id', $request->id)->update([
+            'name' => $request->name,
+            'area_id' => $request->area_id,
+            'genre_id' => $request->genre_id,
+            'discription' => $request->discription,
+            'image_url' => $path,
+            ]);
+        }else{
+            Shop::where('id', $request->id)->update([
+            'name' => $request->name,
+            'area_id' => $request->area_id,
+            'genre_id' => $request->genre_id,
+            'discription' => $request->discription,
+            ]);
+        }
+        return back();
+    }
+
+    public function send(Request $request)
+    {
+        $contact = $request->only([
             'name',
-            'area_id',
-            'genre_id',
-            'discription',
-            'image_url',
-        );
-        Shop::where('id', $request -> id)->update($up_dt);
+            'email',
+        ]);
+        Mail::to($request->email)->send(new ContactMail($contact));
         return back();
     }
 }

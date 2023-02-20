@@ -24,11 +24,10 @@ class ManagementRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|max:20',
             'area_id' => 'required',
             'genre_id' => 'required',
-            'discription' => 'required',
-            'image_url' => 'required',
+            'discription' => 'required|max:255',
         ];
     }
 
@@ -39,7 +38,6 @@ class ManagementRequest extends FormRequest
             'area_id.required' => 'エリアを指定して下さい',
             'genre_id.required' => 'ジャンルを指定して下さい',
             'discription.required' => '説明欄を入力して下さい',
-            'image_url.required' => '画像を指定して下さい',
         ];
     }
 }

@@ -41,7 +41,7 @@
                 <table>
                   <tr>
                     <th>
-                      <img src="img/mail-icon.png" alt="画像がありません">
+                      <img src="img/mail-icon.jpeg" alt="画像がありません">
                     </th>
                     <td>
                       <!-- Email Address -->
@@ -54,7 +54,7 @@
 
                   <tr>
                     <th>
-                      <img src="img/lock-icon.png" alt="画像がありません">
+                      <img src="img/lock-icon.jpeg" alt="画像がありません">
                     </th>
                     <td>
                       <!-- Password -->

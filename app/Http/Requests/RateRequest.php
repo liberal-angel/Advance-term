@@ -25,7 +25,7 @@ class RateRequest extends FormRequest
     {
         return [
             'rate' => 'required',
-            'comment' => 'required|string',
+            'comment' => 'required|string|max:191',
         ];
     }
 

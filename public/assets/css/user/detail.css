@@ -5,54 +5,6 @@ body {
   margin: auto;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo-til {
-  margin-left: 30px;
-  color: #305dff;
-}
-
-.humbergar {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  position: relative;
-  box-shadow: 2px 2px 8px #000;
-  background-color: #305dff;
-  border-radius: 5px;
-}
-
-.humbergar-top,
-.humbergar-middle,
-.humbergar-bottom {
-  display: inline-block;
-  height: 0.5px;
-  background-color: rgb(255, 255, 255);
-  position: absolute;
-  left: 25%;
-}
-
-.humbergar-top {
-  top: 25%;
-  width: 40%;
-}
-
-.humbergar-middle {
-  top: 50%;
-  width: 50%;
-}
-
-.humbergar-bottom {
-  bottom: 25%;
-  width: 25%;
-}
-
-
-
 .back-btn {
   text-decoration: none;
   background: #e6e6e6;
@@ -148,8 +100,6 @@ table p {
   cursor: pointer;
 }
 
-
-/* バリデーション デザイン */
 .show-error {
   background: #fff;
   border-radius: 5px;
@@ -172,4 +122,54 @@ table p {
 
 .error-txt-item {
   color: black;
+}
+
+@media screen and (max-width: 1000px) {
+  .light-content-show {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background: #4d7fff;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  .show-error {
+    background: #fff;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-top: 5%;
+    margin-bottom: 25%;
+  }
+
+  .date {
+    padding: 5px;
+    border-radius: 5px;
+    width: 50%;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .light-content-show {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background: #4d7fff;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  .show-error {
+    background: #fff;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-top: 5%;
+    margin-bottom: 25%;
+  }
+
+  .date {
+    padding: 5px;
+    border-radius: 5px;
+    width: 50%;
+    font-weight: bold;
+  }
 }

@@ -19,7 +19,7 @@ class Shop extends Model
         'image_url',
     ];
 
-    public function item()
+    public function items()
     {
         return $this->hasMany(Admin::class, Area::class, Genre::class, 'foreign_key');
     }

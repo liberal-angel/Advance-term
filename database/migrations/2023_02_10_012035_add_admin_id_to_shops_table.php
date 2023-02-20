@@ -14,7 +14,7 @@ class AddAdminIdToShopsTable extends Migration
     public function up()
     {
         Schema::table('shops', function (Blueprint $table) {
-            $table->foreignId('admin_id')->constrained()->nullable();
+            $table->foreignId('admin_id')->after('genre_id')->constrained()->nullable();
         });
     }
 
@@ -26,6 +26,7 @@ class AddAdminIdToShopsTable extends Migration
     public function down()
     {
         Schema::table('shops', function (Blueprint $table) {
+            $table->dropForeign('shops_admin_id_foreign');
             $table->dropColumn('admin_id');
         });
     }

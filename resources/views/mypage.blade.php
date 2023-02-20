@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/logo.css">
-  <link rel="stylesheet" href="css/mypage.css">
-  <title>My page</title>
+  <link href="{{asset('/assets/css/user/logo.css')}}" rel="stylesheet">
+  <link href="{{asset('/assets/css/user/mypage.css')}}" rel="stylesheet">
+  <title>マイページ</title>
 </head>
 
 <body>
@@ -36,13 +36,13 @@
 
                 <div class="reservation-header">
                   <div class="reservation-header-item">
-                    <img class="clock-icon" src="img/clock-icon.png" alt="画像がありません">
+                    <img class="clock-icon" src="img/clock-icon.jpeg" alt="画像がありません">
                     <p class="reservation-til">予約{{ $i+1 }}</p>
                   </div>
                   @if( $now > $reservation->start_at )
-                    @foreach($Shops as $Shop)
-                      @if( $reservation->shop_id === $Shop->id )
-                        <h2 class="rate-content-til">{{ $Shop->name }}</h2>
+                    @foreach($shops as $shop)
+                      @if( $reservation->shop_id === $shop->id )
+                        <h2 class="rate-content-til">{{ $shop->name }}</h2>
                       @endif
                     @endforeach
                   @else
@@ -54,11 +54,9 @@
                 </div>
 
                 @if( $now > $reservation->start_at )
-
-                <!-- 来店後の表記 -->
                   <div>
                     <p>ご来店ありがとうございました！</p>
-                    <!-- バリデーション -->
+                    
                     @if(count($errors)>0)
                       <div class="show-error">
                         <p class="error-til">下記内容の問題があります</p>
@@ -70,6 +68,7 @@
                         @enderror
                       </div>
                     @endif
+
                     <div>
                       <form action="rate/{{ $reservation->id }}" method="POST">
                         @csrf
@@ -96,8 +95,6 @@
                   </div>
 
                 @else
-
-                <!-- 来店前の予約表記 -->
                   <div>
                     <form action="update/{{ $reservation->id }}" method="POST">
                       @csrf
@@ -107,9 +104,9 @@
                         <tr>
                           <th>Shop</th>
                           <td>
-                            @foreach($Shops as $Shop)
-                              @if( $reservation->shop_id === $Shop->id )
-                                {{ $Shop->name }}
+                            @foreach($shops as $shop)
+                              @if( $reservation->shop_id === $shop->id )
+                                {{ $shop->name }}
                               @endif
                             @endforeach
                           </td>
@@ -163,35 +160,27 @@
     <div class="like-shop">
       <h2>お気に入り店舗</h2>
       <div class="shop-card-content"> <!-- ショップカード -->
-        @foreach( $Shops as $Shop )
-          @if($Shop->likes()->where('user_id', Auth::id())->exists())
+        @foreach( $shops as $shop )
+          @if($shop->likes()->where('user_id', Auth::id())->exists())
             <div class="shop-card">
-              <form action="detail" method="GET">
+              <form action="detail/{{ $shop->id }}" method="GET">
                 @csrf
-                <!-- データ出力 -->
-                <input type="hidden" value="{{$user->id}}" name="user_id">
-                <input type="hidden" value="{{$Shop->id}}" name="shop_id">
-                <input type="hidden" value="{{$Shop->name}}" name="name">
-                <input type="hidden" value="{{$Shop->area_id}}" name="area_id">
-                <input type="hidden" value="{{$Shop->genre_id}}" name="genre_id">
-                <input type="hidden" value="{{$Shop->discription}}" name="discription">
-                <input type="hidden" value="{{$Shop->image_url}}" name="image_url">
 
-                <img class="picture" src="{{$Shop->image_url}}" alt="">
+                <img class="picture" src="{{ Storage::url($shop->image_url) }}" alt="画面が見つかりません">
 
                 <div class="shop-detail">
-                  <h2 class="shop-detail-til between">{{ $Shop->name }}</h2>
+                  <h2 class="shop-detail-til between">{{ $shop->name }}</h2>
 
                   <div class="shop-detail-txt between">
-                    @foreach( $Areas as $Area )
-                      @if( $Shop->area_id === $Area->id )
-                        <p>#{{$Area->name}}</p>
+                    @foreach( $areas as $area )
+                      @if( $shop->area_id === $area->id )
+                        <p>#{{$area->name}}</p>
                       @endif
                     @endforeach
 
-                    @foreach( $Genres as $Genre )
-                      @if( $Shop->genre_id === $Genre->id )
-                        <p>#{{$Genre->name}}</p>
+                    @foreach( $genres as $genre )
+                      @if( $shop->genre_id === $genre->id )
+                        <p>#{{$genre->name}}</p>
                       @endif
                     @endforeach
                   </div>
@@ -202,7 +191,7 @@
               </form>
 
               <div class="heart-content">
-                <form action="unlike/{{$Shop->id}}" method="POST">
+                <form action="unlike/{{$shop->id}}" method="POST">
                   @csrf
                   <button @click="unlike(shopId)" class="like-btn heart"></button>
                 </form>

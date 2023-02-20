@@ -56,7 +56,7 @@
       </div>
     @endif
 
-    <form action="create" class="create-content-form" method="POST">
+    <form action="create" class="create-content-form" method="POST" enctype="multipart/form-data">
       @csrf
       <input type="hidden" name="admin_id" value="{{ $admin->id }}">
       <input type="text" name="name" class="create-add-item" value="{{ old('name') }}" placeholder="店名">
@@ -74,19 +74,18 @@
         @endforeach
       </select>
       <textarea name="discription" class="create-add-txt-area" cols="30" rows="5">{{ old('discription') }}</textarea>
-      <input type="text" name="image_url" class="create-add-item" value="{{ old('image_url') }}" placeholder="画像 url">
+      <input type="file" name="image_url">
       <input type="submit" class="btn" value="作成">
     </form>
-
   </div>
 
   <div>
 
     @foreach( $shops as $shop )
-      @if($shop->admin_id === $admin->id)
+      @if( $shop->admin_id === $admin->id )
         <table>
           <tr>
-            <form action="update/{{ $shop->id }}" class="update-content" method="POST">
+            <form action="update/{{ $shop->id }}" class="update-content" method="POST" enctype="multipart/form-data">
               @csrf
               <th>
                 <input type="text" name="name" class="create-add-item" value="{{ $shop->name }}">
@@ -109,14 +108,14 @@
                 <textarea name="discription" class="create-add-txt-area" cols="30" rows="5">{{$shop->discription}}</textarea>
               </td>
               <td>
-                <input type="text" name="image_url" class="create-add-item" value="{{ $shop->image_url }}">
+                <input type="file" name="image_url">
               </td>
               <td>
                 <input type="submit" class="btn" value="更新">
               </td>
             </form>
 
-            <form action="detail" method="POST">
+            <form action="detail/{{ $shop->id }}" method="GET">
               @csrf
               <td>
                 <input type="hidden" name="id" value="{{ $shop->id }}">

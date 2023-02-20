@@ -18,23 +18,23 @@ use App\Models\Rate;
 class ReservationController extends Controller
 {
     public function index(){
-        $User = Auth::user();
-        $Shops = Shop::all();
-        $Areas = Area::all();
-        $Genres = Genre::all();
-        $Data = [
-            'User' => $User,
-            'Shops' => $Shops,
-            'Areas' => $Areas,
-            'Genres' => $Genres,
+        $user = Auth::user();
+        $shops = Shop::all();
+        $areas = Area::all();
+        $genres = Genre::all();
+        $data = [
+            'user' => $user,
+            'shops' => $shops,
+            'areas' => $areas,
+            'genres' => $genres,
         ];
-        return view('index', $Data);
+        return view('index', $data);
     }
 
     public function search(Request $request){
-        $User = Auth::user();
-        $Areas = Area::all();
-        $Genres = Genre::all();
+        $user = Auth::user();
+        $areas = Area::all();
+        $genres = Genre::all();
 
         $keyword = $request->only(['area_id', 'genre_id', 'name']);
         $query = Shop::query();
@@ -65,12 +65,12 @@ class ReservationController extends Controller
                 ->where('name', 'LIKE BINARY', "%{$request->name}%");
             }
         }
-        $Shops = $query->get();
+        $shops = $query->get();
         $param = [
-            'User' => $User,
-            'Areas' => $Areas,
-            'Genres' => $Genres,
-            'Shops' => $Shops,
+            'user' => $user,
+            'areas' => $areas,
+            'genres' => $genres,
+            'shops' => $shops,
         ];
         return view('index', $param);
     }
@@ -85,25 +85,25 @@ class ReservationController extends Controller
         return back();
     }
 
-    public function detail(Request $request){
-        $detail = $request->all();
+    public function detail($id){
+        $shop = Shop::find($id);
         $user = Auth::user();
-        $Areas = Area::all();
-        $Genres = Genre::all();
+        $areas = Area::all();
+        $genres = Genre::all();
         $today = Carbon::today()->format('Y-m-d');
         $after_year = Carbon::today()->addYears(1)->format('Y-m-d');
         $data = [
-            'detail' => $detail,
+            'shop' => $shop,
             'user' => $user,
-            'Areas' => $Areas,
-            'Genres' => $Genres,
+            'areas' => $areas,
+            'genres' => $genres,
             'today' => $today,
             'after_year' => $after_year,
         ];
         return view('detail', $data);
     }
 
-    public function reservation(ReservationRequest $request){
+    public function create(ReservationRequest $request){
         $dt = $request->date;
         $ti = $request->time;
         $start_at = Carbon::parse("$dt $ti");
@@ -119,18 +119,18 @@ class ReservationController extends Controller
 
     public function mypage(){
         $user = Auth::user();
-        $Shops = Shop::all();
-        $Areas = Area::all();
-        $Genres = Genre::all();
+        $shops = Shop::all();
+        $areas = Area::all();
+        $genres = Genre::all();
         $reservations = Reservation::all();
         $now = Carbon::now();
         $today = Carbon::today()->format('Y-m-d');
         $after_year = Carbon::now()->addYears(1)->format('Y-m-d');
         $data = [
             'user' => $user,
-            'Shops' => $Shops,
-            'Areas' => $Areas,
-            'Genres' => $Genres,
+            'shops' => $shops,
+            'areas' => $areas,
+            'genres' => $genres,
             'reservations' => $reservations,
             'now' => $now,
             'today' => $today,

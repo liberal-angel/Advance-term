@@ -12,9 +12,10 @@ use App\Http\Controllers\AdminController;
 
 Route::middleware('auth:admins')->group(function () {
     Route::get('/index', [AdminController::class, 'index']);
-    Route::post('/detail', [AdminController::class, 'detail']);
     Route::post('/create', [AdminController::class, 'create']);
     Route::post('/update/{id}', [AdminController::class, 'update']);
+    Route::get('/detail/{id}', [AdminController::class, 'detail']);
+    Route::post('/detail/mail', [AdminController::class, 'send']);
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])

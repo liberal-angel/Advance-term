@@ -12,81 +12,123 @@ nav {
   padding: 10px 15px;
 }
 
-.logo {
+.middle {
+  display: flex;
+  justify-content: center;
+}
+
+.mypage-detail-content {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+}
+
+.reservation-check-content {
+  width: 35%;
+}
+
+.reservation {
+  display: flex;
+  flex-direction: column;
+}
+
+.reservation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reservation-header-item {
   display: flex;
   align-items: center;
 }
 
-.logo-til {
-  margin: 0 0 0 30px;
-  color: #305dff;
+.clock-icon {
+  margin-right: 15px;
 }
 
-.humbergar {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
+.reservation-til {
+  margin: 0;
+}
+
+.reservation-delete-btn {
   cursor: pointer;
-  position: relative;
+  border-radius: 50%;
+  color: #fff;
+  border: 2px solid #fff;
+  background-color: transparent;
+}
+
+.reservation-detail {
+  background: #305dff;
   box-shadow: 2px 2px 8px #000;
-  background-color: #305dff;
   border-radius: 5px;
-
+  padding: 25px 15px 0px 15px;
+  color: #fff;
+  width: 60%;
+  margin-top: 5%;
+  position: relative;
 }
 
-.humbergar-top,
-.humbergar-middle,
-.humbergar-bottom {
-  display: inline-block;
-  height: 0.5px;
-  background-color: rgb(255, 255, 255);
+table {
+  border-spacing: 0px 20px;
+}
+
+table th {
+  text-align: left;
+}
+
+table td {
+  padding-left: 20px;
+}
+
+.rate-content-til{
+  margin: 0;
+  margin-right: 10%;
+}
+
+ul, ol{
+  margin: 0;
+  padding: 0;
+}
+
+.add-rate{
+  width: 45%;
+}
+
+.add-comment {
+  width: 45%;
+}
+
+.rate-btn{
   position: absolute;
-  left: 25%;
+  bottom: 5%;
+  right: 10%;
+  border-radius: 5px;
+  background: #fff;
+  color: #000;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
-.humbergar-top {
-  top: 25%;
-  width: 40%;
-}
 
-.humbergar-middle {
-  top: 50%;
-  width: 50%;
-}
 
-.humbergar-bottom {
-  bottom: 25%;
-  width: 25%;
-}
-
-.search-item {
-  border: transparent;
-  font-size: 15px;
-  height: 30px;
-  outline: none;
-}
-
-.search-item:not(:last-child){
-  border-right: 2px solid rgb(119, 119, 119);
-}
-
-.shop {
-  width: 100%;
+.like-shop {
+  width: 55%;
 }
 
 .shop-card-content {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  margin: auto;
   width: 90%;
 }
 
 .shop-card {
   width: 300px;
   height: 300px;
-  margin: 20px auto;
+  margin: 12px;
   box-shadow: 2px 2px 8px #000;
   ;
   border-radius: 8px;
@@ -132,6 +174,24 @@ nav {
   padding: 5px 15px;
   cursor: pointer;
 }
+
+.add-txt{
+  width: 100%;
+  height: 25px;
+  border-radius: 3px;
+  border: transparent;
+}
+
+.change-btn{
+  position: absolute;
+  right: 10%;
+  border-radius: 5px;
+  background: #fff;
+  color: #000;
+  padding: 5px 6px;
+  cursor: pointer;
+}
+
 
 .like-btn {
   border-color: transparent;
@@ -229,4 +289,64 @@ nav {
   /* 右に回転 */
   right: 14%;
   /* 右からの位置を指定 */
+}
+
+/* バリデーション デザイン */
+.show-error {
+  background: #fff;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin-top: 5%;
+}
+
+.error-til,
+.error-txt {
+  margin: 0;
+}
+
+.error-til,
+.error-txt-item {
+  color: #000;
+}
+
+.error-til {
+  font-size: larger;
+}
+
+.error-txt {
+  color: red;
+}
+
+@media screen and (max-width: 1000px) {
+  .reservation-detail {
+    background: #305dff;
+    box-shadow: 2px 2px 8px #000;
+    border-radius: 5px;
+    padding: 25px 15px 0px 15px;
+    color: #fff;
+    width: 90%;
+    margin-top: 5%;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .reservation-detail {
+    background: #305dff;
+    box-shadow: 2px 2px 8px #000;
+    border-radius: 5px;
+    padding: 25px 15px 0px 15px;
+    color: #fff;
+    width: 90%;
+    margin-top: 5%;
+    position: relative;
+  }
+
+  .reservation-check-content {
+    width: 50%;
+  }
+
+  .like-shop {
+    width: 50%;
+  }
 }

@@ -14,5 +14,3 @@ num_of_users.addEventListener('change', function () {
   num_of_users_view = document.getElementById("num_of_users_view");
   num_of_users_view.innerText = num_of_users.value + '人';
 });
-
-// ハンバーガーボタン機能

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{{asset('/assets/css/admin/logo.css')}}" rel="stylesheet">
   <link href="{{asset('/assets/css/admin/style.css')}}" rel="stylesheet">
-  <title>Login</title>
+  <title>管理者-ログイン</title>
 </head>
 
 <body>
@@ -43,7 +43,7 @@
                 <table>
                   <tr>
                     <th>
-                      <img src="{{ asset('img/mail-icon.png') }}" alt="画像がありません">
+                      <img src="{{ asset('img/mail-icon.jpeg') }}" alt="画像がありません">
                     </th>
                     <td>
                       <!-- Email Address -->
@@ -56,7 +56,7 @@
 
                   <tr>
                     <th>
-                      <img src="{{ asset('img/lock-icon.png') }}" alt="画像がありません">
+                      <img src="{{ asset('img/lock-icon.jpeg') }}" alt="画像がありません">
                     </th>
                     <td>
                       <!-- Password -->

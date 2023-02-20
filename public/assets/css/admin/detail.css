@@ -26,7 +26,7 @@ th{
   width: 10%;
 }
 
-.back-btn {
+.btn {
   background: #305dff;
   padding: 10px;
   color: #fff;
@@ -39,7 +39,7 @@ th{
   transition: 0.5s;
 }
 
-.back-btn:hover {
+.btn:hover {
   background: #fff;
   color: #305dff;
   border: 1px solid #305dff;

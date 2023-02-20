@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{{asset('/assets/css/admin/logo.css')}}" rel="stylesheet">
   <link href="{{asset('/assets/css/admin/style.css')}}" rel="stylesheet">
-  <title>Register</title>
+  <title>管理者-登録</title>
 </head>
 
 <body>
@@ -39,25 +39,25 @@
               <div class="list-item-input">
                 <table>
                   <tr> <!-- Name -->
-                    <th> <img src="{{ asset('img/human-icon.png') }}" alt="画像がありません"> </th>
+                    <th> <img src="{{ asset('img/human-icon.jpeg') }}" alt="画像がありません"> </th>
                     <td>
                       <x-input id="name" class="add_txt" type="text" name="name" :value="old('name')" required autofocus placeholder="Username"/>
                     </td>
                   </tr>
                   <tr> <!-- Email Address -->
-                    <th> <img src="{{ asset('img/mail-icon.png') }}" alt="画像がありません"> </th>
+                    <th> <img src="{{ asset('img/mail-icon.jpeg') }}" alt="画像がありません"> </th>
                     <td>
                       <x-input id="email" class="add_txt" type="email" name="email" :value="old('email')" required placeholder="Email"/>
                     </td>
                   </tr>
                   <tr> <!-- Password -->
-                    <th> <img src="{{ asset('img/lock-icon.png') }}" alt="画像がありません"> </th>
+                    <th> <img src="{{ asset('img/lock-icon.jpeg') }}" alt="画像がありません"> </th>
                     <td>
                       <x-input id="password" class="add_txt" type="password" name="password" required autocomplete="new-password" placeholder="Password"/>
                     </td>
                   </tr>
                   <tr> <!-- Confirm Password -->
-                    <th> <img src="{{ asset('img/lock-icon.png') }}" alt="画像がありません"> </th>
+                    <th> <img src="{{ asset('img/lock-icon.jpeg') }}" alt="画像がありません"> </th>
                     <td>
                       <x-input id="password_confirmation" class="add_txt" type="password" name="password_confirmation" required placeholder="Again-Password"/>
                     </td>

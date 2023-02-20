@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/thanks.css">
+  <link href="{{asset('/assets/css/user/logo.css')}}" rel="stylesheet">
+  <link href="{{asset('/assets/css/user/index.css')}}" rel="stylesheet">
+  <link href="{{asset('/assets/css/user/thanks.css')}}" rel="stylesheet">
   <title>Done</title>
 </head>
 
@@ -23,7 +24,7 @@
   <div class="thanks-content">
     <div class="thanks-content-item">
       <p>ご予約ありがとうございます</p>
-      <button onClick="history.back();" class="btn">戻る</button>
+      <a href="/" class="btn">戻る</a>
     </div>
   </div>
   
